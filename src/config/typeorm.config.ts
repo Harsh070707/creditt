@@ -5,11 +5,11 @@ config();
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'mysql',
-  port: parseInt(process.env.DB_PORT),
-  host: process.env.DB_HOST,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
+  port: 3306,
+  host: 'database-1.cqytvdjdchra.us-east-1.rds.amazonaws.com',
+  username: 'admin',
+  password: 'password',
+  database: 'rds_database_creddit',
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
   synchronize: true,
 };
