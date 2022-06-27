@@ -14,13 +14,11 @@ export NVM_DIR="$HOME/.nvm"
 #install node modules
 #npm i -g pm2
 
-npm install
-
-npm run build
+npm ci && npm run build && npm run start:prod
 
 #pm2 start dist/main.js
 
-npm run start:prod
+
 
 
 #start our node app in the background
