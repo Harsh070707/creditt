@@ -22,6 +22,9 @@ npm install pm2 -g
 
 npm run build
 
+pm2 start dist/main.js
+
+
 # pm2 start npm --name "sweetcollective" -- start
 
 pm2 startup
