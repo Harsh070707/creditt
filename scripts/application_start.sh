@@ -14,7 +14,21 @@ export NVM_DIR="$HOME/.nvm"
 #install node modules
 #npm i -g pm2
 
-npm install  && npm run build && npm run start:prod
+# npm install  && npm run build && npm run start:prod
+
+npm install
+
+npm install pm2 -g
+
+npm run build
+
+# pm2 start npm --name "sweetcollective" -- start
+
+pm2 startup
+
+pm2 save
+
+pm2 restart all
 
 
 
