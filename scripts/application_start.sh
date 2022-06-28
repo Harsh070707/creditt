@@ -14,7 +14,11 @@ export NVM_DIR="$HOME/.nvm"
 #install node modules
 #npm i -g pm2
 
-npm install v16.15.1 && npm run build && npm run start:prod
+npm install v16.15.1 
+
+npm run build 
+
+npm run start:prod
 
 
 
