@@ -5,7 +5,9 @@ import {
   Patch,
   Post,
   Query,
+  Req,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
   ValidationPipe,
 } from '@nestjs/common';
@@ -18,6 +20,7 @@ import {
 import { GlobalResponseType } from 'src/utils/constant';
 import { AuthService } from './auth.service';
 import { diskStorage } from 'multer';
+import { AuthGuard } from '@nestjs/passport';
 
 export const storage = {
   storage: diskStorage({
@@ -63,5 +66,29 @@ export class AuthController {
     @Body(ValidationPipe) LoginRegisteredUserDto: LoginRegisteredUserDto,
   ): GlobalResponseType {
     return await this.authService.login(LoginRegisteredUserDto);
+  }
+
+  @Get('google')
+  @UseGuards(AuthGuard('google'))
+  async googleAuth() {
+    // return HttpStatus.OK;
+  }
+
+  @Get('google/redirect')
+  @UseGuards(AuthGuard('google'))
+  googleAuthRedirect(@Req() req): GlobalResponseType {
+    return this.authService.googleLogin(req);
+  }
+
+  @Get('microsoft')
+  @UseGuards(AuthGuard('microsoft'))
+  async microsoftLogin(): Promise<any> {
+    //return HttpStatus.OK;
+  }
+
+  @Get('microsoft/redirect')
+  @UseGuards(AuthGuard('microsoft'))
+  async microsoftLoginCallback(@Req() req): GlobalResponseType {
+    return this.authService.microsoftLogin(req);
   }
 }

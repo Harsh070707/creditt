@@ -148,4 +148,12 @@ export class AuthService {
       );
     } catch (err) {}
   }
+
+  async googleLogin(req): GlobalResponseType {
+    return req;
+  }
+
+  async microsoftLogin(req): GlobalResponseType {
+    return req;
+  }
 }
