@@ -24,8 +24,6 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
     profile: Profile,
     done: (err: any, user: any, info?: any) => void,
   ): Promise<any> {
-    console.log(profile);
-
     const user = {
       email: profile._json.email,
       Name: profile.username,
