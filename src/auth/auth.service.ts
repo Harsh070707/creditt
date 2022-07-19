@@ -160,4 +160,8 @@ export class AuthService {
   async facebookLogin(req): GlobalResponseType {
     return ResponseData(req.user);
   }
+
+  async githubLogin(req): GlobalResponseType {
+    return ResponseData(req.user);
+  }
 }

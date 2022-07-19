@@ -103,4 +103,15 @@ export class AuthController {
   async facebookLoginCallback(@Req() req): GlobalResponseType {
     return this.authService.facebookLogin(req);
   }
+  @Get('github')
+  @UseGuards(AuthGuard('github'))
+  async githubLogin(): Promise<any> {
+    //return HttpStatus.OK;
+  }
+
+  @Get('github/redirect')
+  @UseGuards(AuthGuard('github'))
+  async githubLoginCallback(@Req() req): GlobalResponseType {
+    return this.authService.githubLogin(req);
+  }
 }

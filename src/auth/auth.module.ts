@@ -8,6 +8,7 @@ import * as dotenv from 'dotenv';
 import { GoogleStrategy } from './google.strategy';
 import { MicrosoftStrategy } from './azure.strategy';
 import { FacebookStrategy } from './facebook.strategy';
+import { GithubStrategy } from './github.strategy';
 dotenv.config();
 
 @Module({
@@ -21,7 +22,13 @@ dotenv.config();
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, GoogleStrategy, MicrosoftStrategy, FacebookStrategy],
+  providers: [
+    AuthService,
+    GoogleStrategy,
+    MicrosoftStrategy,
+    FacebookStrategy,
+    GithubStrategy,
+  ],
   exports: [AuthService, JwtModule],
 })
 export class AuthModule {}
