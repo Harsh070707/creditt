@@ -5,6 +5,9 @@ import { UserEntity } from 'src/entities/user.entity';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import * as dotenv from 'dotenv';
+import { GoogleStrategy } from './google.strategy';
+import { MicrosoftStrategy } from './azure.strategy';
+import { FacebookStrategy } from './facebook.strategy';
 dotenv.config();
 
 @Module({
@@ -18,7 +21,7 @@ dotenv.config();
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, GoogleStrategy, MicrosoftStrategy, FacebookStrategy],
   exports: [AuthService, JwtModule],
 })
 export class AuthModule {}

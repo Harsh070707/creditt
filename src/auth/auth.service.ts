@@ -150,10 +150,14 @@ export class AuthService {
   }
 
   async googleLogin(req): GlobalResponseType {
-    return req;
+    return ResponseData(req.user);
   }
 
   async microsoftLogin(req): GlobalResponseType {
-    return req;
+    return ResponseData(req.user);
+  }
+
+  async facebookLogin(req): GlobalResponseType {
+    return ResponseData(req.user);
   }
 }

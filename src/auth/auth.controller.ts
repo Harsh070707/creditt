@@ -91,4 +91,16 @@ export class AuthController {
   async microsoftLoginCallback(@Req() req): GlobalResponseType {
     return this.authService.microsoftLogin(req);
   }
+
+  @Get('facebook')
+  @UseGuards(AuthGuard('facebook'))
+  async facebookLogin(): Promise<any> {
+    //return HttpStatus.OK;
+  }
+
+  @Get('facebook/redirect')
+  @UseGuards(AuthGuard('facebook'))
+  async facebookLoginCallback(@Req() req): GlobalResponseType {
+    return this.authService.facebookLogin(req);
+  }
 }
