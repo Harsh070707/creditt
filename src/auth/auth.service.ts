@@ -86,7 +86,7 @@ export class AuthService {
       const registeredData = await this.userRepository
         .createQueryBuilder('r')
         .getMany();
-      return ResponseData({ registeredData }, 'your registered');
+      return ResponseData({ registeredData }, 'you are registered');
     } catch (err) {}
   }
 
